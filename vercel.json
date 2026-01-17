@@ -4,5 +4,14 @@
             "source": "/(.*)",
             "destination": "/index.py"
         }
+    ],
+    "builds": [
+        {
+            "src": "index.py",
+            "use": "@vercel/python",
+            "config": {
+                "excludeFiles": "{nextjs-frontend/**,data_uploads/**,node_modules/**,.venv/**,.git/**}"
+            }
+        }
     ]
 }
