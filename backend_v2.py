@@ -127,9 +127,7 @@ def status():
         stats = database.get_stats()
         
         # Get file list from DB
-        conn = database.get_db_connection()
-        files = [row['filename'] for row in conn.execute("SELECT filename FROM uploaded_files").fetchall()]
-        conn.close()
+        files = database.get_uploaded_filenames()
 
         return jsonify({
             "status": "online",
