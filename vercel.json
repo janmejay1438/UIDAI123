@@ -1,7 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/(.*)",
+            "source": "/api/(.*)",
             "destination": "/index.py"
         }
     ],
@@ -10,7 +10,7 @@
             "src": "index.py",
             "use": "@vercel/python",
             "config": {
-                "excludeFiles": "{nextjs-frontend/**,data_uploads/**,node_modules/**,.venv/**,.git/**,analytics_engine.py}"
+                "excludeFiles": "{data_uploads/**,node_modules/**,.venv/**,.git/**}"
             }
         }
     ]
