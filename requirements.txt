@@ -2,7 +2,7 @@ pandas
 openpyxl
 flask
 flask-cors
-openai
+
 requests
 python-dotenv
 google-generativeai
