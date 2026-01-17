@@ -1,6 +1,3 @@
-pandas
-openpyxl
-flask
-flask-cors
-openai
-requests
+version https://git-lfs.github.com/spec/v1
+oid sha256:afe6633638396ad8be0c91a0a135a3ac5117f742a4666baac5fc99168d188bb9
+size 55

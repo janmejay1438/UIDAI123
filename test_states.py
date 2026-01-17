@@ -1,11 +1,3 @@
-import requests
-
-try:
-    r = requests.get('http://127.0.0.1:5000/api/analytics/states?period=monthly')
-    data = r.json()
-    print(f'Total states after normalization: {len(data)}')
-    print('\nAll states:')
-    for s in sorted(data, key=lambda x: x['state']):
-        print(f"  - {s['state']}")
-except Exception as e:
-    print(f'Error: {e}')
+version https://git-lfs.github.com/spec/v1
+oid sha256:f2a23889a18a066269e6c5a408055952ca49d426d261db2abf310ee18f434bff
+size 358
