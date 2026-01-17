@@ -2,6 +2,9 @@ import pandas as pd
 import glob
 import os
 import json
+from dotenv import load_dotenv
+
+load_dotenv() # Load variables from .env file (if it exists)
 import io
 import sys
 import random
