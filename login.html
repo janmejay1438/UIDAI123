@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - UIDAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .login-container {
+            min-height: calc(100vh - 160px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header img {
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .login-header h2 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="navbar container">
+            <div class="logo">
+                <h1><span style="color:var(--primary-blue)">Aadhaar</span><span
+                        style="color:var(--accent-orange)">Seva</span></h1>
+            </div>
+            <a href="index.html" class="btn-text">Back to Home</a>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Admin Portal</h2>
+                <p>Restricted Access Only</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter Admin Username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter Password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary login-btn">Login</button>
+            </form>
+
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Unique Identification Authority of India.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '123456') {
+                window.location.href = 'admin_dashboard.html';
+            } else {
+                alert('Invalid Credentials! (Try: admin / 123456)');
+            }
+        }
+    </script>
+</body>
+
+</html>
