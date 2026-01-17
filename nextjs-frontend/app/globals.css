@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* UIDAI Official Color Palette */
+  --uidai-deep-blue: #020D51;
+  --uidai-light-blue: #19B0DC;
+  --uidai-accent-orange: #FF9933;
+  --uidai-success-green: #28a745;
+  --uidai-bg-light: #F4F7FE;
+  --uidai-card-border: #E2E8F0;
+
+  --foreground: #1E293B;
+  --background: #F4F7FE;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Utility Classes without @apply to avoid build errors */
+.uidai-card {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  padding: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.uidai-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.uidai-button-primary {
+  background: linear-gradient(to right, #020D51, #19B0DC);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.uidai-button-primary:hover {
+  opacity: 0.9;
+}
+
+.uidai-button-secondary {
+  border: 2px solid #020D51;
+  color: #020D51;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.uidai-button-secondary:hover {
+  background-color: #020D51;
+  color: white;
+}
+
+.uidai-gradient-bg {
+  background: linear-gradient(135deg, #020D51 0%, #19B0DC 100%);
+}
+
+.uidai-text-gradient {
+  background: linear-gradient(to right, #020D51, #19B0DC);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Table Styles */
+.uidai-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #E2E8F0;
+}
+
+.uidai-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.uidai-table th {
+  background-color: #F8FAFC;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: #475569;
+  border-bottom: 2px solid #E2E8F0;
+}
+
+.uidai-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #F1F5F9;
+  color: #64748B;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
