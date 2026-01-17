@@ -1,6 +1,7 @@
 import pandas as pd
 import glob
 import os
+import json
 import io
 import sys
 import random
@@ -26,17 +27,28 @@ ANALYTICS_ENGINE = UidaiAnalytics(DATA_FOLDER) # Initialize Pipeline
 CONFIG_PATH = 'config.json'
 
 def load_config():
+    # Priority 1: Environment Variables (Deployment)
+    config = {
+        "gemini_key": os.environ.get("GEMINI_API_KEY"),
+        "govt_key": os.environ.get("GOVT_API_KEY"),
+        "govt_url": os.environ.get("GOVT_API_URL", "https://api.data.gov.in/resource/YOUR_RESOURCE_ID")
+    }
+
+    # Priority 2: Config File (Local Override)
     if os.path.exists(CONFIG_PATH):
         try:
             with open(CONFIG_PATH, 'r') as f:
-                return json.load(f)
+                file_config = json.load(f)
+                # Only update if key is missing from env or user explicitly wants file override
+                # Here we just merge, preferring file if needed or filling gaps? 
+                # Better approach: Env vars override file (standard practice)
+                for k, v in file_config.items():
+                    if not config.get(k): # If env var didn't provide it
+                        config[k] = v
         except:
             pass
-    return {
-        "gemini_key": None,
-        "govt_key": None,
-        "govt_url": "https://api.data.gov.in/resource/YOUR_RESOURCE_ID"
-    }
+            
+    return config
 
 def save_config(conf):
     try:
