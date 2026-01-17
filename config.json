@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:035609d0a35de1f71a20bd52b322f9d65e59842b64ad60fc11bedb5bfa962336
-size 123
+{
+    "gemini_key": null,
+    "govt_key": null,
+    "govt_url": "https://api.data.gov.in/resource/YOUR_RESOURCE_ID"
+}

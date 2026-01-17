@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:87978ff261a55e8c022cfc72eae15682026d6e8529bf1f38208e391fb6d77589
-size 224
+District,Enrolments,Updates,Date
+Patna,120,40,2024-01-15
+Gaya,110,30,2024-01-20
+Delhi_NCR,600,800,2024-02-10
+Mumbai,5000,200,2024-02-15
+Lucknow,300,50,2024-03-05
+Jaipur,150,20,2024-01-05
+Bangalore,400,100,2024-02-01

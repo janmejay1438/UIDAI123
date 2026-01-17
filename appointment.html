@@ -1,3 +1,133 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:be5e3ba6ae39aa961194ff6d8c5c7748afc221d0e1f5ddcc00c11ad93ea69c55
-size 5971
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - UIDAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header Reuse -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-links">
+                    <span><a href="index.html"><i class="fas fa-home"></i> Back to Home</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="navbar container">
+            <div class="logo">
+                <h1><span style="color:var(--primary-blue)">Aadhaar</span><span
+                        style="color:var(--accent-orange)">Seva</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="section" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">Book an Appointment</div>
+
+            <div
+                style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow-md);">
+                <div style="margin-bottom: 30px; text-align: center;">
+                    <p>Book an appointment at an Aadhaar Seva Kendra for Aadhaar Enrolment or Update.</p>
+                </div>
+
+                <form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">City/Location</label>
+                            <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                                <option>Select City</option>
+                                <option>Delhi</option>
+                                <option>Mumbai</option>
+                                <option>Bangalore</option>
+                                <option>Patna</option>
+                                <option>Chennai</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Service Type</label>
+                            <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                                <option>Fresh Aadhaar Enrolment</option>
+                                <option>Name Update</option>
+                                <option>Address Update</option>
+                                <option>Mobile No. Update</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Mobile Number</label>
+                        <input type="tel" placeholder="Enter Mobile Number"
+                            style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="bookAppointment()" style="width: 100%;">
+                        Proceed to Book
+                    </button>
+                </form>
+
+                <div id="success-msg"
+                    style="display: none; margin-top: 20px; padding: 20px; background: #e6f4ea; border: 1px solid #ceead6; border-radius: 8px;">
+                    <h4 style="color: #1e7e34; margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Appointment
+                        Booked!</h4>
+                    <p>Your Application ID is: <strong id="app-id"
+                            style="font-size: 1.2rem; background: white; padding: 2px 8px; border-radius: 4px;"></strong>
+                    </p>
+                    <p style="font-size: 0.9rem; margin-top: 5px;">Please save this ID to check your status.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Unique Identification Authority of India.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function bookAppointment() {
+            // 1. Collect Data
+            const city = document.querySelector('select:nth-of-type(1)').value;
+            const service = document.querySelectorAll('select')[1].value; // Getting 2nd select
+            const mobile = document.querySelector('input[type="tel"]').value;
+
+            if (city === 'Select City' || !mobile) {
+                alert('Please select a city and enter mobile number');
+                return;
+            }
+
+            // 2. Generate ID
+            const appId = 'EID' + Math.floor(100000 + Math.random() * 900000);
+
+            // 3. Create Record
+            const record = {
+                id: appId,
+                city: city,
+                service: service,
+                mobile: mobile,
+                status: 'Processing',
+                date: new Date().toLocaleDateString()
+            };
+
+            // 4. Save to DB (using global db object from main.js)
+            window.db.save(record);
+
+            // 5. Show Success
+            document.querySelector('form').style.display = 'none';
+            document.getElementById('success-msg').style.display = 'block';
+            document.getElementById('app-id').innerText = appId;
+        }
+    </script>
+
+</body>
+
+</html>

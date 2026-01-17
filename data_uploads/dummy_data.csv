@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:76c9c5a71a3e77befa1a01795306035c889ec362167372164baca523eca75560
-size 368
+State,District,Age_Group,Enrolment_Count,Date
+Bihar,Patna,18-30,500,2023-01-01
+Bihar,Gaya,18-30,400,2023-01-01
+Bihar,Muzaffarpur,18-30,300,2023-01-01
+Bihar,Patna,0-5,1200,2023-01-01
+Bihar,Gaya,0-5,900,2023-01-01
+Bihar,Patna,18-30,450,2023-02-01
+Bihar,Gaya,18-30,350,2023-02-01
+Jharkhand,Ranchi,18-30,600,2023-01-01
+Uttar Pradesh,Lucknow,18-30,700,2023-01-01
