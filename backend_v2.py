@@ -262,7 +262,7 @@ def ask_question():
 
     data = request.json
     question = data.get('question')
-    api_key = data.get('api_key') or CONFIG['GEMINI_API_KEY']
+    api_key = data.get('api_key') or CONFIG['gemini_key']
     
     if not api_key:
          return jsonify({"error": "Gemini API Key not configured. Go to Admin Settings."}), 400
