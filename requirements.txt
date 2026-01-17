@@ -5,3 +5,4 @@ flask-cors
 openai
 requests
 python-dotenv
+google-generativeai
