@@ -10,7 +10,7 @@
             "src": "index.py",
             "use": "@vercel/python",
             "config": {
-                "excludeFiles": "{data_uploads/**,node_modules/**,.venv/**,.git/**}"
+                "excludeFiles": "{node_modules/**,.venv/**,.git/**}"
             }
         }
     ]
